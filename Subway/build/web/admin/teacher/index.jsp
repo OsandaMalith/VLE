@@ -99,12 +99,26 @@
                         <td><a href="viewCourses.jsp?username=<c:out value="${teacher[1]}" />" onclick="return popitup('viewCourses.jsp?username=<c:out value="${teacher[1]}" />')">View Courses</a></td>
                         <td><a href="index.jsp?name=<c:out value="${teacher[0]}&username=${teacher[1]}&id=${teacher[2]}&dor=${teacher[4]}&email=${teacher[3]}"/>">Update</a> 
                         </td>
-                        <td><A href="delete.jsp?id=<c:out value="${teacher[2]}"/>" onclick="return confirm('Delete Record?')" >Delete</a></td>
+                        <td><a class="deleteRecord" href="delete.jsp?id=<c:out value="${teacher[2]}"/>" onclick="return vleConfirm('Delete record?');" data-message="Delete record?">Delete</a></td>
 
                     </tr>
                 </c:forEach> 
             </table> 
         </div>
+                
+<!--        <div id="confirmOverlay">
+            <div id="confirmBox">
+                <p>Message</p>
+
+                <div id="confirmButtons">
+                    <button id="confirmYes" class="confirmButton blue">Yes</button>
+                    <button id="confirmNo" class="confirmButton red">No</button>
+                </div>
+            </div>
+        </div>-->
+        
+        <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/main.js"></script>
         <script language="javascript" type="text/javascript">
             <!--
             function popitup(url) {

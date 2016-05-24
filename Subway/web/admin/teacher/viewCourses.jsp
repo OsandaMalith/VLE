@@ -12,6 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Current Courses of ${param.username}</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css"> 
     </head>
     <body>
         <sql:query var="result" dataSource="${dbdriver}">
@@ -20,7 +22,7 @@
             where USERNAME= ? )
             <sql:param value="${param.username}" />
         </sql:query>
-        <table border="1" style="width:100%" >
+        <table>
             <tr>
                 <th>Course Code</th>
                 <th>Course Name</th>

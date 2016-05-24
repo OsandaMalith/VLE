@@ -15,6 +15,9 @@
     </head>
 
     <body>
+        <div class="login-logo">
+            <img src="${pageContext.request.contextPath}/images/logo.png">
+        </div>
         <div class="login-container">
             <h1>Enter Your Login Details</h1>
             <form action="LoginServlet" method="POST">
@@ -29,5 +32,8 @@
                 <input type="submit" value="Sign in" alight="center">
             </form>
         </div>
+        <footer class="login-footer">
+            <span>&copy; 2016 Osanda</span>
+        </footer>
     </body>
 </html>

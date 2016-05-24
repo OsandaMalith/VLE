@@ -85,5 +85,11 @@
                 </c:forEach>
             </table>
         </div>
+        
+        <footer class="site-footer">
+            <div class="container">
+                <span>&copy; 2016 Osanda</span>
+            </div>
+        </footer>
     </body>
 </html>

@@ -35,6 +35,58 @@ a:active {
     padding: 0 15px;
 }
 
+/* jQuery Confirm box */
+#confirmOverlay {
+    position: fixed;
+    display: block;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+#confirmOverlay #confirmBox {
+    position: relative;
+    display: block;
+    width: 400px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 4px 30px 0 rgba(0,0,0,0.5);
+    background-color: #fff;
+    top: 0; bottom: auto;
+    margin: 100px auto 0 auto;
+    z-index: 9999;
+}
+#confirmOverlay #confirmBox p {
+    margin-top: 5px;
+}
+#confirmOverlay #confirmBox #confirmButtons {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+button {
+    background-color: transparent;
+    border: 1px solid #1EA2FA;
+    color: #1EA2FA;
+    padding: 6px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover,
+button:active {
+    background-color: #1EA2FA;
+    color: #fff;
+}
+button.red {
+    border-color: #F22230;
+    color: #F22230;
+}
+button.red:hover,
+button.red:active {
+    background-color: #F22230;
+    color: #fff;
+}
+
 /* Site header */
 .site-header {
     background-color: #f5f5f5;
@@ -148,4 +200,18 @@ table tr th {
 }
 table tr td {
     padding: 6px 0;
+}
+
+/* Footer */
+.site-footer {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: #777;
+}
+.site-footer .container {
+    border-top: 1px solid #ddd;
+    padding: 30px 0;
 }
