@@ -15,6 +15,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Panel</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">        
     </head>
     <body>
         <c:if test="${sessionScope.userid == null}">
@@ -22,53 +24,66 @@
                 <c:param name="errMsg" value="Only Admin can view this Page" />
             </c:redirect>
         </c:if>
-        <h1>Welcome to Admin Panel</h1>
-        <h2>Hello <%= session.getAttribute("userid")%></h2>
-        <br>
-        <a href="admin/teacher/" target="_blank">Control Teachers</a> | 
-        <a href="admin/student/" target="_blank">Control Students</a> |
-        <a href="logout.jsp">Logout</a>
-        <br><br>
-        <h4>Add Courses</h4>
-        <br>
-        <form name="course" action="insertCourses.jsp" method="POST">
-            Enter Course code:<br>
-            <input type="text" name="code" value="" /><br><br>
-            Enter Course Name:<br>
-            <input type="text" name="name" value="" /><br><br>
-            Enter Course Key: <br>
-            <input type="text" name="ekey" value="" /><br><br>
-            <input type="submit" value="Add Course" name="course" />
-        </form>
-        <br>
-        <font color="red"><c:if test="${not empty param.errMsg}">
-            <c:out value="${param.errMsg}" />
-        </c:if></font>
-        <br>
-        <font color="green"><c:if test="${not empty param.susMsg}">
-            <c:out value="${param.susMsg}" />
-        </c:if></font>
-        <br><br>
-        Current Courses:
+        
+        <header class="site-header">
+            <div class="container">
+                <h1>Welcome to Admin Panel</h1>
+            </div>
+        </header>
+        
+        <div class="subheader">   
+            <div class="container">
+                <p class="greeting">Hello <%= session.getAttribute("userid")%>!</p>
+                <div class="admin-nav">
+                    <a href="admin/teacher/" target="_blank">Control Teachers</a> | 
+                    <a href="admin/student/controlStudent.jsp" target="_blank">Control Students</a> |
+                    <a href="logout.jsp">Logout</a>
+                </div>
+            </div>
+        </div><!-- /subheader -->
 
-        <sql:query dataSource="${dbdriver}" var="result">
-            SELECT * from OSANDA.COURSE
-        </sql:query>
+        <div class="container">
+            <h4>Add Courses</h4>
+            <form name="course" action="insertCourses.jsp" method="POST">
+                Enter Course code:<br>
+                <input type="text" name="code" value="" />
+                Enter Course Name:<br>
+                <input type="text" name="name" value="" />
+                Enter Course Key: <br>
+                <input type="text" name="ekey" value="" />
+                <input type="submit" value="Add Course" name="course" />
+            </form>
+            <br>
+            <font color="red"><c:if test="${not empty param.errMsg}">
+                <c:out value="${param.errMsg}" />
+            </c:if></font>
+            <br>
+            <font color="green"><c:if test="${not empty param.susMsg}">
+                <c:out value="${param.susMsg}" />
+            </c:if></font>            
+            
+            <h4>Current Courses:</h4>
+            <br>
 
-        <table border="1" width="100%">
-            <tr>
-                <th>Module Code</th>
-                <th>Module Name</th>
-                <th>Enrollment Key</th>
-                <th colspan="2">Action</th>
-            </tr>
-            <c:forEach var="row" items="${result.rows}">
+            <sql:query dataSource="${dbdriver}" var="result">
+                SELECT * from OSANDA.COURSE
+            </sql:query>
+
+            <table>
                 <tr>
-                    <td><c:out value="${row.code}"/></td>
-                    <td><c:out value="${row.name}"/></td>
-                    <td><c:out value="${row.ekey}"/></td>
+                    <th>Module Code</th>
+                    <th>Module Name</th>
+                    <th>Enrollment Key</th>
+                    <th colspan="2">Action</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach var="row" items="${result.rows}">
+                    <tr>
+                        <td><c:out value="${row.code}"/></td>
+                        <td><c:out value="${row.name}"/></td>
+                        <td><c:out value="${row.ekey}"/></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </body>
 </html>

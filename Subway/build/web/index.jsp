@@ -10,30 +10,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome to VLE Login Portal</title>
-        <style type="text/css">
-            .container {
-                width: 500px;
-                clear: both;
-            }
-            .container input {
-                width: 100%;
-                clear: both;
-            }
-            P { text-align: center }
-        </style>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
 
     <body>
-        <h1>Enter Your Login Details</h1>
-        <form action="LoginServlet" method="POST">
-            <input type="radio" name="login" value="admin"> Admin
-            <input type="radio" name="login" value="teacher"> Teacher
-            <input type="radio" name="login" value="student" checked="checked"> Student
-            <div class="container">
-                <p> Username   : </p> <input type="name" name="username" > <br>
-                <p> Password: </p> <input type="password" name="password"> <br><br>
+        <div class="login-container">
+            <h1>Enter Your Login Details</h1>
+            <form action="LoginServlet" method="POST">
+                <div class="login-radio-wrap">
+                    <input id="rdo_admin" type="radio" name="login" value="admin"><label for="rdo_admin">&nbsp;Admin</label>
+                    <input id="rdo_teacher" type="radio" name="login" value="teacher"><label for="rdo_teacher">&nbsp;Teacher</label>
+                    <input id="rdo_student" type="radio" name="login" value="student" checked="checked"><label for="rdo_student">&nbsp;Student</label>
+                </div>
+                
+                <label for="username">Username</label><input id="username" type="text" name="username" >
+                <label for="password">Password</label><input id="password" type="password" name="password">
                 <input type="submit" value="Sign in" alight="center">
-                </form>
-            </div>
+            </form>
+        </div>
     </body>
 </html>
