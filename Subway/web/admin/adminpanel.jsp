@@ -42,7 +42,7 @@
             </div>
         </div><!-- /subheader -->
 
-        <div class="container">
+        <div class="container site-content">
             <h4>Add Courses</h4>
             <form name="course" action="insertCourses.jsp" method="POST">
                 Enter Course code:<br>
